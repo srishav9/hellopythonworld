@@ -1,0 +1,47 @@
+
+FUNCTIONAL PROGRAMMING DONOT HAVE SIDE EFFECTS.
+BUT PYTHON IS MORE FLEXIBLE.
+
+
+To build your understanding of any function, you should aim to answer the following questions:
+
+    How many parameters does it have?
+
+    What is the type of values that will be passed when the function is invoked?
+
+    What is the type of the return value that the function produces when it executes?
+
+Here are some clues that can help you determine the type of object associated with any variable, including a function parameter. If you see…
+
+        len(x), then x must be a string or a list. (Actually, it can also be a dictionary, in which case it is equivalent to the expression len(x.keys()). Later in the course, we will also see some other sequence types that it could be). x can’t be a number or a Boolean.
+
+        x - y, x and y must be numbers (integer or float)
+
+        x + y, x and y must both be numbers, both be strings, or both be lists
+
+        x[3], x must be a string or a list containing at least four items, or x must be a dictionary that includes 3 as a key.
+
+        x['3'], x must be a dictionary, with ‘3’ as a key.
+
+        x[y:z], x must be a sequence (string or list), and y and z must be integers
+
+        x and y, x and y must be Boolean
+
+        for x in y, y must be a sequence (string or list) or a dictionary (in which case it’s really the dictionary’s keys); x must be a character if y is a string; if y is a list, x could be of any type.
+
+
+  FUNCTIONAL PROGRAMMING DONOT HAVE SIDE EFFECTS.
+  BUT PYTHON IS MORE FLEXIBLE.
+
+
+MUTATIONS/SIDE EFFECTS:
+        As you have seen, when a function (or method) is invoked and a parameter value is provided, a new stack frame is created, and the parameter name is bound to the parameter value. What happens when the value that is provided is a mutable object, like a list or dictionary? Is the parameter name bound to a copy of the original object, or does it become an alias for exactly that object? In python, the answer is that it becomes an alias for the original object. This answer matters when the code block inside the function definition causes some change to be made to the object (e.g., adding a key-value pair to a dictionary or appending to a list).
+
+        This sheds a little different light on the idea of parameters being local. They are local in the sense that if you have a parameter x inside a function and there is a global variable x, any reference to x inside the function gets you the value of local variable x, not the global one. If you set x = 3, it changes the value of the local variable x, but when the function finishes executing, that local x disappears, and so does the value 3.
+
+        If, on the other hand, the local variable x points to a list [1, 3, 7], setting x[2] = 0 makes x still point to the same list, but changes the list’s contents to [1, 3, 0]. The local variable x is discarded when the function completes execution, but the mutation to the list lives on if there is some other variable outside the function that also is an alias for the same list.
+refer mutation.py
+    Try running it. Similar to examples we have seen before, running double does not change the global y. But running changeit does change mylst. The explanation is above, about the sharing of mutable objects. Try stepping through it in codelens to see the difference.
+
+FUNCTIONAL PROGRAMMING DONOT HAVE SIDE EFFECTS.
+BUT PYTHON IS MORE FLEXIBLE.

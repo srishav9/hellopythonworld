@@ -1,0 +1,26 @@
+
+
+Note:
+
+FOR methods.py file
+
+Technically, .keys(), .values(), and .items() don’t return actual lists. Like the range function described previously, in python 3 they return objects that produce the items one at a time, rather than producing and storing all of them in advance as a list. Unless the dictionary has a whole lot of keys, this won’t make a difference for performance. In any case, as with the range function, it is safe for you to think of them as returning lists, for most purposes. For the python interpreter built into this textbook, they actually do produce lists. In a native python interpreter, if you print out type(inventory.keys()), you will find that it is something other than an actual list. If you want to get the first key, inventory.keys()[0] works in the online textbook, but in a real python interpreter, you need to make the collection of keys into a real list before using [0] to index into it: list(inventory.keys())[0].
+
+
+GET method:
+The get method allows us to access the value associated with a key, similar to the [ ] operator. The important difference is that get will not cause a runtime error if the key is not present. It will instead return None. There exists a variation of get that allows a second parameter that serves as an alternative return value in the case where the key is not present. This can be seen in the final example below. In this case, since “cherries” is not a key, return 0 (instead of None).
+
+
+Accumulator variable strategy and dictionary variable:
+Acc. var is going to get tedious if we try to accumulate counts for all the letters. We will have to initialize a lot of accumulators, and there will be a very long if..elif..elif statement. Using a dictionary, we can do a lot better.
+
+One dictionary can hold all of the accumulator variables. Each key in the dictionary will be one letter, and the corresponding value will be the count so far of how many times that letter has occurred.
+
+When to use a Dictionary:
+
+
+    When a piece of data consists of a set of properties of a single item, a dictionary is often better. You could try to keep track mentally that the zip code property is at index 2 in a list, but your code will be easier to read and you will make fewer mistakes if you can look up mydiction[‘zipcode’] than if you look up mylst[2].
+
+    When you have a collection of data pairs, and you will often have to look up one of the pairs based on its first value, it is better to use a dictionary than a list of (key, value) tuples. With a dictionary, you can find the value for any (key, value) tuple by looking up the key. With a list of tuples you would need to iterate through the list, examining each pair to see if it had the key that you want.
+
+    On the other hand, if you will have a collection of data pairs where multiple pairs share the same first data element, then you can’t use a dictionary, because a dictionary requires all the keys to be distinct from each other.
