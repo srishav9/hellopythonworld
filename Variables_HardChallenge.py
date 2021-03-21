@@ -103,8 +103,8 @@ print(ans)
 
 
 ######
-# In the future, we will learn how with more tools, this is actually a trivial task as following
-# code for future purposes only
+# This is actually a trivial task as following:
+
 if b == -1:
     print(2 * a + 1)
 else:
